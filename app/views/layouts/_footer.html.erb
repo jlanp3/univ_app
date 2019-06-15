@@ -1,0 +1,24 @@
+<footer class="page-footer indigo lighten-2">
+     <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"><%= image_tag("Logo.png", size: "32x32", class: "responsive-img") %> University App</h5>
+            <p class="grey-text text-lighten-4">The future of development training</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Info</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
+              <li><%= link_to "About", about_path, class: "grey-text text-lighten-3" %></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2019 Copyright
+        <%= link_to "About", about_path, class: "white-text right" %>
+        </div>
+      </div>
+</footer>

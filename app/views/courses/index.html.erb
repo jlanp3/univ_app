@@ -1,0 +1,27 @@
+<div class="row">
+	<h3 class="center-align">Course Listing</h3>
+</div>
+
+<div class="row">
+	<% @courses.each do |course| %>
+  <div class="col s6 m6">
+    <h4 class="header"><%= course.short_name %>:</h4>
+    <h5 class="center-align"><%= course.name %></h5>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://picsum.photos/id/1/200/300">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= course.description %></p>
+        </div>
+        <div class="card-action link-css center-align">
+          <a href="#">Enroll</a>
+          <a href="#">Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+	<% end %>
+</div>
+            

@@ -1,0 +1,29 @@
+@import "materialize";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+/*#logo {
+	padding-left: 15px;
+}*/
+
+.container {
+	padding-top: 5px;
+}
+
+.link-css {
+	font-size: 1.2em;
+}
+
+.sign-up-form {
+	padding-top: 15px;
+}
