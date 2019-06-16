@@ -11,21 +11,33 @@
 					<%= form_for(@student, html: {class: "col s12"}) do |f| %>
 						<div class="row">
 							<div class="input-field col s12">
-								<%= f.text_field :name, placeholder: "Enter your full name", autofocus: true, id: "first_name", class: "validate" %>
-								<%= f.label :name, for: "first_name" %>
+								<%= f.text_field :name, placeholder: "Enter your full name", autofocus: true, id: "name", class: "active" %>
+								<%= f.label :name, for: "name" %>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<%= f.email_field :email, placeholder: "Enter your email", class: "validate" %>
+								<%= f.email_field :email, placeholder: "Enter your email", class: "active" %>
 								<%= f.label :email %>
 								<span class="helper-text" data-error="wrong" data-success="right">Enter Email</span>
 							</div>
 						</div>
+						<% if @student.new_record? %>
 						<div class="row">
 							<div class="input-field col s12">
-								<%= f.submit(@student.new_record? ? "Signup!" : "Update", class: "waves-effect waves-light btn center") %>
-								<%= link_to "Cancel", root_path, class: "waves-effect waves-light red btn center" %>
+								<%= f.password_field :password, placeholder: "Enter your password", class: "active",autocomple: false %>
+								<%= f.label :password %>
+							</div>
+						</div>
+						<% end %>
+						<div class="row">
+							<div class="input-field col s12">
+								<%= f.button(@student.new_record? ? '<i class="material-icons right">arrow_forward</i>Signup!'.html_safe : "Update", class: "waves-effect waves-light btn center") %>
+								<% if @student.new_record? %>
+									<%= link_to "Cancel", root_path, class: "waves-effect waves-light red btn center" %>
+								<% else %>
+									<%= link_to "Cancel", @student, class: "waves-effect waves-light red btn center" %>
+								<% end %>
 							</div>
 						</div>
 					<% end %> 
