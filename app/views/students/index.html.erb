@@ -18,7 +18,7 @@
       </div>
       <div class="card-action">
           <%= link_to "View Profile", student_path(student) %>
-        <% if current_user.admin? or current_user == student%>
+        <% if current_user.admin? %>
   				<%= link_to "delete Profile", student_path(student), method: :delete, 
                                           data: { confirm: 'Are you sure?' } %>
         <% end %>
