@@ -1,6 +1,4 @@
 @import "materialize";
-@import "https://fonts.googleapis.com/icon?family=Material+Icons";
-
 
 body {
 	display: flex;
@@ -16,8 +14,8 @@ main {
 	padding-left: 15px;
 }*/
 
-.container {
-	padding-top: 5px;
+.main-css {
+	padding-top: 15px;
 }
 
 .link-css {
@@ -26,4 +24,14 @@ main {
 
 .sign-up-form {
 	padding-top: 15px;
+}
+
+.pagination li.active a {
+  color: #fff;
+}
+
+
+
+.bg-secondary {
+	background-color: #26A69A;
 }

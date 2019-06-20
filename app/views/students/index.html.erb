@@ -8,14 +8,26 @@
       <div class="card-content white-text">
         <span class="card-title">Name: <%= student.name %></span>
         <p>Email: <%= student.email %></p>
-        <p>Course Enrollments: None</p>
+        <p>Course Enrollments:
+          <% if student.courses.empty? %>
+            None
+          <% else %>
+            <%= student.courses.count %>
+          <% end %>
+        </p>
       </div>
       <div class="card-action">
-        <%= link_to "View Profile", student_path(student) %>
-				<%= link_to "delete Profile", student_path(student), method: :delete, 
+          <%= link_to "View Profile", student_path(student) %>
+        <% if current_user.admin? or current_user == student%>
+  				<%= link_to "delete Profile", student_path(student), method: :delete, 
                                           data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </div>
     </div>
   </div>
 	<% end %>
+</div>
+
+<div class="row center">
+  <%= will_paginate @students %>
 </div>

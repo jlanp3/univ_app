@@ -20,5 +20,7 @@ $(document).on('turbolinks:load', function() {
 	$(".dropdown-trigger").dropdown();
 	$('.sidenav').sidenav();
 	$('#fade-out-target').fadeOut(6000);
+	$('input#input_text, input#input_text3, textarea#textarea2').characterCounter();
+	$('.fixed-action-btn').floatingActionButton();
 	M.updateTextFields();
 })

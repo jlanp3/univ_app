@@ -7,5 +7,4 @@ module ApplicationHelper
       link_to("Login", login_path)
     end
   end
-
 end

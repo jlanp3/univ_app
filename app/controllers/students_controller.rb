@@ -1,8 +1,12 @@
 class StudentsController < ApplicationController
+  skip_before_action :require_user, only: [:new, :create]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
+
 
   def index
-    @students = Student.all
+    @students = Student.paginate(page: params[:page], per_page: 4)
   end
 
   def show
@@ -50,5 +54,19 @@ class StudentsController < ApplicationController
 
     def student_params
       params.require(:student).permit(:name, :email, :password)
+    end
+
+    def require_same_user
+      if current_user != @student and !current_user.admin?
+        flash[:orange] = "you can only edit your own profile"
+        redirect_to student_path(current_user)
+      end
+    end
+
+    def require_admin
+      if logged_in? and current_user.admin?
+        flash[:orange] = "Administrator"
+        redirect_to student_path(current_user)
+      end
     end
 end

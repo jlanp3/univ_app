@@ -1,0 +1,39 @@
+<div class="row card-panel">
+  <div class="row">
+  	<h3 class="center-align">
+      <% if @course.new_record? %>
+        Create New Course
+      <% else %>
+        Edit Course
+      <% end %>
+    </h3>
+  </div>
+	<%= form_for(@course, html: {class: "col s12"}) do |f| %>
+    <div class="row">
+      <div class="input-field col s4 offset-s1">
+      	<%= f.text_field :short_name, id: "input_text", 'data-length': 15, maxlength: 15 %>
+				<%= f.label "Code of Course", for: "input_text" %>
+      </div>
+      <div class="input-field col s5 offset-s1">
+      	<%= f.text_field :name, id: "input_text3", 'data-length': 25 %>
+				<%= f.label "Name of Course", for: "input_text3" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s10 offset-s1">
+      	<%= f.text_area :description, id: "textarea2", class: "materialize-textarea", 'data-length': 300 %>
+				<%= f.label "Description", for: "textarea2" %>
+      </div>
+    </div>
+    <div class="row center">
+			<div class="input-field col s12">
+				<%= f.button(@course.new_record? ? '<i class="material-icons right">arrow_forward</i>create!'.html_safe : "Update", class: "waves-effect waves-light btn") %>
+				<% if @course.new_record? %>
+					<%= link_to "Cancel", root_path, class: "waves-effect waves-light red btn" %>
+				<% else %>
+					<%= link_to "Cancel", @course, class: "waves-effect waves-light red btn" %>
+				<% end %>
+			</div>
+		</div>
+  <% end %>
+</div>
